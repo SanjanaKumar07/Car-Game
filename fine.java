@@ -83,11 +83,11 @@ else if(h==1)
 }
 
           }
-          if(((carX+30)>x&&(carX+30)<(x+60)) && ((carY+30)>y)&&((carY+30)<(y+60)))
+          if(((carX+30)>x&&(carX+30)<(x+60)) && ((carY+30)>y)&&((carY+30)<(y+60))) //checking for one obstacle
           {
           dead = 1;
           }
-          else if(((carX+30)>c&&(carX+30)<(c+60)) && ((carY+30)>d)&&((carY+30)<(d+60)))
+          else if(((carX+30)>c&&(carX+30)<(c+60)) && ((carY+30)>d)&&((carY+30)<(d+60))) //checking for the other one
           {
           dead = 1;
           }
