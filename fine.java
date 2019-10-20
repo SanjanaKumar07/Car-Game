@@ -17,7 +17,7 @@ public fine()
     setVisible(true);
     addKeyListener(this);
         d = 10;
-        c = 200;
+        c = 220;
         x=10;        
         y = 10;
         flag = 1;
@@ -80,15 +80,18 @@ else if(h==1)
   c=220;
   }
   y = 10;
-d = 10;
+  d = 10;
 }
 
           }
-          if((((carX+30)>x && carX<(x+30) && (carY>(y-120)&& carY <( y+ 30))))||((carX+30)>c && carX<(c+30) && (carY>(d-120) && carY < (d+ 30))))
+          if(((carX+30)>x&&(carX+30)<(x+60)) && ((carY+30)>y)&&((carY+30)<(y+60)))
           {
           dead = 1;
           }
-
+          else if(((carX+30)>c&&(carX+30)<(c+60)) && ((carY+30)>d)&&((carY+30)<(d+60)))
+          {
+          dead = 1;
+          }
     }
     public void run()
     {
@@ -99,7 +102,6 @@ while (true)
 repaint();
 update();
 try {
-
 // creating a pause of 1 second
 // so that the movement is recognizable
 Thread.sleep(80);
