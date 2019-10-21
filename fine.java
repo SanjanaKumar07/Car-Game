@@ -5,17 +5,25 @@ import javax.swing.*;
 import java.awt.event.*;
 public class fine extends JFrame implements Runnable,KeyListener {
 class MyCanvas extends Canvas{
-	int p,q;
-	public MyCanvas(int u,int v){
+	int p,q,b1,b2,b3,b4;
+	public MyCanvas(int u,int v,int a1,int a2,int a3,int a4){
 		 p = u;
 		 q = v;
+		b1 = a1;
+		b2 = a2;
+b3 = a3;
+b4 = a4;
 	}
 	public void Paint(Graphics g)
 	{
 	super.paint(g);
 	Toolkit t =Toolkit.getDefaultToolkit();
-	Image i = t.getImage("/home/srikrishna/Desktop/new.png");
-	g.drawImage(i,p,q,this);
+	Image i1 = t.getImage("/home/srikrishna/Desktop/car.png");
+	g.drawImage(i1,p,q,this);
+	Image i2 = t.getImage("/home/srikrishna/Desktop/greenobs.png");
+	g.drawImage(i2,b1,b2,this);
+	Image i3 = t.getImage("/home/srikrishna/Desktop/redobs.png");
+	g.drawImage(i3,b3,b4,this);
 	}
 }  
 public int x, y, flag,c,d,dead = 0;
@@ -131,13 +139,10 @@ if(dead == 0){
 super.paint(g);
       //g.setColor(Color.RED);
       //g.fillRect(carX,carY,60,60);
-      g.setColor(Color.GREEN);
-      g.fillRect(x,y,60,60);
       g.setColor(Color.BLUE);
-      g.fillRect(c,d,60,60);
       g.drawLine(100,0,100,600);
       g.drawLine(200,0,200,600);
-      MyCanvas m = new MyCanvas(carX,carY);
+      MyCanvas m = new MyCanvas(carX,carY,x,y,c,d);
       m.Paint(g);
 }
 else
