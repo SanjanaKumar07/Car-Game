@@ -1,8 +1,23 @@
 import java.awt.*;
+import java.applet.*;
 import java.util.*;
 import javax.swing.*;
 import java.awt.event.*;
-public class fine extends JFrame implements Runnable,KeyListener {  
+public class fine extends JFrame implements Runnable,KeyListener {
+class MyCanvas extends Canvas{
+	int p,q;
+	public MyCanvas(int u,int v){
+		 p = u;
+		 q = v;
+	}
+	public void Paint(Graphics g)
+	{
+	super.paint(g);
+	Toolkit t =Toolkit.getDefaultToolkit();
+	Image i = t.getImage("/home/srikrishna/Desktop/new.png");
+	g.drawImage(i,p,q,this);
+	}
+}  
 public int x, y, flag,c,d,dead = 0;
 int score = 0;
 public int count = 10;
@@ -10,7 +25,7 @@ public int count = 10;
 Random rand = new Random();
 Thread t;
 public fine()
-        {  
+        {
         setBounds(300,700,frameWidth,frameHeight);
     setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     setVisible(true);
@@ -83,11 +98,11 @@ else if(h==1)
 }
 
           }
-          if(((carX+30)>x&&(carX+30)<(x+60)) && ((carY+30)>y)&&((carY+30)<(y+60))) //checking for one obstacle
+          if(((carX+30)>x&&(carX+30)<(x+60)) && ((carY+30)>y)&&((carY+30)<(y+60)))
           {
           dead = 1;
           }
-          else if(((carX+30)>c&&(carX+30)<(c+60)) && ((carY+30)>d)&&((carY+30)<(d+60))) //checking for the other one
+          else if(((carX+30)>c&&(carX+30)<(c+60)) && ((carY+30)>d)&&((carY+30)<(d+60)))
           {
           dead = 1;
           }
@@ -114,15 +129,16 @@ public void paint(Graphics g)
 {
 if(dead == 0){
 super.paint(g);
-      g.setColor(Color.RED);
-      g.fillRect(carX,carY,60,60);
+      //g.setColor(Color.RED);
+      //g.fillRect(carX,carY,60,60);
       g.setColor(Color.GREEN);
       g.fillRect(x,y,60,60);
       g.setColor(Color.BLUE);
       g.fillRect(c,d,60,60);
       g.drawLine(100,0,100,600);
       g.drawLine(200,0,200,600);
-
+      MyCanvas m = new MyCanvas(carX,carY);
+      m.Paint(g);
 }
 else
 {
