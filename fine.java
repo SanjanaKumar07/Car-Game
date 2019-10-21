@@ -18,11 +18,11 @@ b4 = a4;
 	{
 	super.paint(g);
 	Toolkit t =Toolkit.getDefaultToolkit();
-	Image i1 = t.getImage("/home/srikrishna/Desktop/car.png");
+	Image i1 = t.getImage("/home/srikrishna/Desktop/car.png");       //change the paths according to the location of yor  images
 	g.drawImage(i1,p,q,this);
 	Image i2 = t.getImage("/home/srikrishna/Desktop/greenobs.png");
 	g.drawImage(i2,b1,b2,this);
-	Image i3 = t.getImage("/home/srikrishna/Desktop/redobs.png");
+	Image i3 = t.getImage("/home/srikrishna/Desktop/redobs.png");    
 	g.drawImage(i3,b3,b4,this);
 	}
 }  
