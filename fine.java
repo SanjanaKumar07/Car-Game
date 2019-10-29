@@ -11,8 +11,8 @@ class MyCanvas extends Canvas{
 		 q = v;
 		b1 = a1;
 		b2 = a2;
-b3 = a3;
-b4 = a4;
+		b3 = a3;
+		b4 = a4;
 	}
 	public void Paint(Graphics g)
 	{
